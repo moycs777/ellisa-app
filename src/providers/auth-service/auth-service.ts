@@ -27,8 +27,8 @@ export class AuthServiceProvider {
 
     //this.api = '/web-ellisa/';
 
-    //this.api = 'http://142.93.49.220/api/';
-    this.api = 'http://localhost:8000/api/';
+    this.api = 'http://142.93.49.220/api/';
+    //this.api = 'http://localhost:8000/api/';
   }
 
   login(data) {

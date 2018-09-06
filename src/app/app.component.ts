@@ -71,6 +71,17 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
 
+      this.storage.get('user').then((user)=>{
+        if (user) {
+          console.log('si hay id ' + (user.id));
+          this.rootPage = HomePage;
+        }else{
+          console.log('no hay id ' + user);
+          this.rootPage = LoginPage;
+        }
+      })
+
+
       //*** Control Splash Screen
       // this.splashScreen.show();
       // this.splashScreen.hide();
