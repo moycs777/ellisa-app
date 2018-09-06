@@ -1,0 +1,7 @@
+{
+  "name": "app-ellisa",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

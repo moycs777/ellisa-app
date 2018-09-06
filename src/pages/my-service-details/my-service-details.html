@@ -1,0 +1,82 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Detalle del servicio</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+
+    <ion-item>
+      <h2>{{ service.title }}</h2>
+      <p>Presupuesto del cliente: ${{ service.amount }}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p> {{ service.description }} </p>
+    </ion-card-content>
+
+    <p>
+      <ion-item>
+        <p class="status">
+          Estado:
+          <ion-badge *ngIf="service.status == 'visible' ">
+            Servicio disponible.
+          </ion-badge>
+
+          <ion-badge *ngIf="service.status == 'taked' ">
+            Servicio con propuesta en marcha.
+          </ion-badge>
+
+          <ion-badge *ngIf="service.status == 'ended' ">
+            Servicio culminado.
+          </ion-badge>
+
+          <ion-badge *ngIf="service.status == 'suspended' ">
+            Servicio suspendido.
+          </ion-badge>
+
+          <ion-badge *ngIf="service.status == 'paused' ">
+            Servicio pausado momentaneamente.
+          </ion-badge>
+
+          <ion-badge *ngIf="service.status == 'calificated' ">
+            Servicio en espera de calificación.
+          </ion-badge>
+        </p>
+      </ion-item>
+    </p>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="calendar"></ion-icon>
+          <div>Fecha de inicio:  {{ service.init_date }} </div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="calendar"></ion-icon>
+          <div>Fecha final:  {{ service.end_date }} </div>
+        </button>
+      </ion-col>
+      <!--<ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col> -->
+    </ion-row>
+
+  </ion-card>
+
+</ion-content>

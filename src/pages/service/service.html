@@ -1,0 +1,85 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+
+	<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	</button>
+
+    <ion-title>Service</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>Ellisa</strong> Crear Servicio
+      </h2>
+    </div>
+
+    <ion-item>
+      <ion-label floating>Título</ion-label>
+      <ion-input type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descripción</ion-label>
+      <ion-input type="text" [(ngModel)]="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Precio</ion-label>
+      <ion-input type="text" [(ngModel)]="price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Categoría</ion-label>
+      <ion-select [(ngModel)]="category_id">
+        <ion-option *ngFor="let category of categories" [value]="category.id">{{ mayus(category.name) }}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <p ion-text color="secondary" tappable class="show-timepickers">
+      <strong>
+        <a href="#" (click)="showTimepickers()">Agregar fecha</a>
+      </strong>
+    </p>
+
+    <div class="timepickers">
+      <ion-item>
+        <ion-label floating>Fecha de inicio</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="service_date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Hora de inicio</ion-label>
+        <ion-datetime displayFormat="hh:mm A" [(ngModel)]="hour_init"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Fecha final</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="end_date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Hora final</ion-label>
+        <ion-datetime displayFormat="hh:mm A" [(ngModel)]="hour_end"></ion-datetime>
+      </ion-item>
+    </div>
+
+    <div>
+      <button ion-button icon-start block color="dark" id="save-service" tappable (click)="onSaveService()">
+        <ion-icon name="log-in"></ion-icon>
+        Guardar
+      </button>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,57 @@
+<!-- -->
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+        <span ion-text>Servicios</span>
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button tappable>
+          <ion-icon name="notifications"></ion-icon>
+        </button>
+        <button ion-button tappable>
+          <ion-icon name="cog"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+
+    <!--  -->
+    <!--<ion-toolbar padding color="light">
+      <p ion-text no-margin class="text-white">
+        <strong>4</strong> results found!
+      </p>
+    </ion-toolbar> -->
+
+  </ion-header>
+
+
+<ion-content padding class="trips detail-bg">
+
+    <div *ngIf="items?.length < 1">
+      No tienes servicios disponibles.
+    </div>
+    <!--list of services-->
+    <div class="trip card" *ngFor="let item of items" tappable margin-bottom (click)="sendProposal(item)">
+      <div class="background border-bottom">
+        <img src="http://natbg.com/wp-content/uploads/2016/06/forests-homeward-bound-autumn-grass-beams-sunlight-path-gold-trees-forest-beautiful-rays-wood-trail-season-home-tunnel-background-pictures.jpg" alt="">
+        <div class="background-filter rlt">
+          <div class="align-bottom" padding-left padding-right>
+            <h6 class="pull-left text-white" ion-text>{{ item.title }}</h6>
+            <h6 class="pull-right text-white" ion-text>{{ item.description }}</h6>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      <div class="padding-sm primary-bg">
+        <ion-icon name="logo-usd" class="text-white"></ion-icon>
+        <span ion-text class="text-white"> {{ item.amount }}</span>
+        <span class="pull-right" ion-text color="light" *ngIf="item.detail.service_date != null">
+          <strong>
+            {{ item.detail.service_date }}
+          </strong>
+        </span>
+      </div>
+    </div>
+  </ion-content>

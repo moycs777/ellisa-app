@@ -1,0 +1,42 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+
+	<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	</button>
+
+    <ion-title>Preguntas de profesiones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>Ellisa</strong> Detalles de tu profesión {{ professionName }}
+      </h2>
+    </div>
+
+    <form class="form-question">
+      <ion-item *ngFor="let q of questions">
+        <ion-label floating>{{ q.name }}</ion-label>
+        <ion-input type="text" [attr.name]="q.id" value="{{ q.value }}">{{ q.value }}</ion-input>
+      </ion-item>
+
+      <div>
+        <button ion-button icon-start block color="dark" tappable (click)="send()">
+          <ion-icon name="log-in"></ion-icon>
+          Guardar
+        </button>
+      </div>
+    </form>
+
+  </div>
+</ion-content>

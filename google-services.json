@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "516964559637",
+    "firebase_url": "https://ellisa-noti-moy.firebaseio.com",
+    "project_id": "ellisa-noti-moy",
+    "storage_bucket": "ellisa-noti-moy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516964559637:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516964559637-7c0063js9h2avbf9givqt8n754fk1uk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl1JHdsxvvpmy5_umxqJPz8LePw5uIRwA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

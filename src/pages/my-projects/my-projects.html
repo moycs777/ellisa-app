@@ -1,0 +1,84 @@
+<!--
+  Generated template for the MyProjectsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+
+	<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	</button>
+
+    <ion-title>Mis proyectos*</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="common-bg">
+  <ion-grid class="card" padding *ngFor="let project of projects" style="margin-bottom: 15px;">
+    <ion-row>
+        <ion-col width-50 offset-25>
+            <h2 class="location text-dark">{{ project.title }}</h2>
+            <!--<div class="icon"><img src="{{weather.icon_url}}" alt="weather"></div> -->
+            <h3 class="desc">{{ project.description }}</h3>
+            <h1 class="temp">$ {{ project.amount }}</h1>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-100>
+            <ion-list>
+
+                <ion-item>
+                <strong>Fecha de inicio: </strong> {{ project.detail.service_date }}
+                </ion-item>
+                <ion-item>
+                    <strong>Fecha final: </strong> {{ project.detail.end_date }}
+                </ion-item>
+                <ion-item *ngIf="project.status != 'taked' ">
+                  <p>
+                    <span *ngIf="aproxLength(project.postulations) == 0">
+                      Sin propuestas para este servicio.
+                    </span>
+
+                    <span *ngIf="aproxLength(project.postulations) == 1">
+                      {{ aproxLength(project.postulations) }} Propuesta
+                    </span>
+
+                    <span *ngIf="aproxLength(project.postulations) > 1">
+                        {{ aproxLength(project.postulations) }} Propuestas
+                    </span>
+                  </p>
+                </ion-item>
+                <ion-item>
+                  <p>
+                    <ion-badge *ngIf="project.status == 'taked' ">
+                      Servicio con propuesta en marcha.
+                    </ion-badge>
+                  </p>
+                </ion-item>
+                 <!--<ion-item>
+                    <strong>Dewpoint:</strong> {{weather.dewpoint_string}}
+                </ion-item>
+                 <ion-item>
+                    <strong>Visibility:</strong> {{weather.visibility_km}}
+                </ion-item>
+                <ion-item>
+                    <strong>Heat Index:</strong> {{weather.heat_index_string}}
+                </ion-item> -->
+                <ion-item>
+                  <button ion-button color="primary" full (click)="details(project)" >
+                    Detalles del servicio
+                  </button>
+                  <button ion-button color="secondary" full (click)="proposalServices(project)">
+                    Postulaciones de servicio
+                  </button>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

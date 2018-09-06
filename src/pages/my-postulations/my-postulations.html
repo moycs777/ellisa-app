@@ -1,0 +1,86 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Mis Postulaciones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="common-bg">
+  <ion-grid class="card" padding *ngFor="let postulation of myPostulations" style="margin-bottom: 15px;">
+    <ion-row>
+        <ion-col width-50 offset-25>
+            <h2 class="location text-dark">{{ postulation.description }}</h2>
+            <!--<div class="icon"><img src="{{weather.icon_url}}" alt="weather"></div> -->
+            <!--<h3 class="desc">Servicio: {{ postulation.service.title }}</h3> -->
+            <h1 class="temp">Monto presupuestado ${{ postulation.price }}</h1>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-100>
+            <ion-list>
+
+                <ion-item>
+                  <strong>Fecha de inicio: </strong> {{ postulation.created_at }}
+                </ion-item>
+                 <!--<ion-item>
+                    <strong>Fecha final: </strong> {{ project.detail.end_date }}
+                </ion-item> -->
+                 <!--<ion-item>
+                    <strong>Dewpoint:</strong> {{weather.dewpoint_string}}
+                </ion-item>
+                 <ion-item>
+                    <strong>Visibility:</strong> {{weather.visibility_km}}
+                </ion-item>
+                <ion-item>
+                    <strong>Heat Index:</strong> {{weather.heat_index_string}}
+                </ion-item> -->
+                <ion-item>
+                  <button ion-button color="primary" full (click)="details(postulation)">
+                    Ver detalles del servicio
+                  </button>
+                </ion-item>
+                <ion-item>
+                  <p class="status">
+                    Estado:
+                    <ion-badge *ngIf="postulation.status == 'postulating' ">
+                      Postulación enviada.
+                    </ion-badge>
+
+                    <ion-badge *ngIf="postulation.status == 'watching' ">
+                      Postulación pendiente.
+                    </ion-badge>
+
+                    <ion-badge *ngIf="postulation.status == 'ended' && postulation.talent_id != id_user ">
+                      Han seleccionado otra propuesta.
+                    </ion-badge>
+
+                    <ion-badge *ngIf="postulation.status == 'ended' && postulation.talent_id == id_user ">
+                      ¡Ten han seleccionado!
+                    </ion-badge>
+
+                    <ion-badge *ngIf="postulation.status == 'suspended' ">
+                      Postulacion suspendida.
+                    </ion-badge>
+
+                    <ion-badge *ngIf="postulation.status == 'dismiss' ">
+                      Postulacion desactivada.
+                    </ion-badge>
+
+                    <ion-badge *ngIf="postulation.status == 'calificated' ">
+                      Postulacion en espera de calificación.
+                    </ion-badge>
+                  </p>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

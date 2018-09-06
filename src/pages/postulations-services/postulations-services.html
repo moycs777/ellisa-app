@@ -1,0 +1,73 @@
+<!--
+  Generated template for the PostulationsServicesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+
+	<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	</button>
+
+    <ion-title>Postulaciones de mi proyecto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="common-bg">
+  <ion-grid class="card" padding *ngFor="let postulation of postulations" style="margin-bottom: 15px;">
+    <ion-row>
+        <ion-col width-50 offset-25>
+            <h2 class="location text-dark">{{ postulation.description }}</h2>
+            <!--<div class="icon"><img src="{{weather.icon_url}}" alt="weather"></div> -->
+            <!--<h3 class="desc">{{ postulation.price }</h3> -->
+            <p>
+              Presupuesto ofrecido: ${{ postulation.price }}
+            </p>
+            <p>
+              Nombre del postulante: {{ postulation.talent.name }}
+            </p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-100>
+            <ion-list>
+
+                <ion-item>
+                  <strong>Fecha de inicio: </strong> {{ postulation.created_at }}
+                </ion-item>
+                <ion-item>
+                  <ion-badge *ngIf="postulation.status == 'ended' ">
+                    Ya has aceptado esta propuesta.
+                  </ion-badge>
+                </ion-item>
+                <!--<ion-item>
+                    <strong>Fecha final: </strong> {{ project.detail.end_date }}
+                </ion-item> -->
+                 <!--<ion-item>
+                    <strong>Dewpoint:</strong> {{weather.dewpoint_string}}
+                </ion-item>
+                 <ion-item>
+                    <strong>Visibility:</strong> {{weather.visibility_km}}
+                </ion-item>
+                <ion-item>
+                    <strong>Heat Index:</strong> {{weather.heat_index_string}}
+                </ion-item> -->
+                <ion-item>
+                  <button
+                    ion-button color="light"
+                    full class="accept"
+                    *ngIf="postulation.service.status != 'taked' "
+                    (click)="accept(postulation.service.id, postulation.id)">
+                    Aprobar propuesta
+                  </button>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

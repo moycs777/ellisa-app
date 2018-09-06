@@ -1,0 +1,52 @@
+<!--
+  Generated template for the CreateHabilitiesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+
+  	<button ion-button menuToggle>
+  		<ion-icon name="menu"></ion-icon>
+  	</button>
+
+    <ion-title>Selecciona tus profesiones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>Ellisa</strong> Selecciona tus profesiones
+      </h2>
+    </div>
+
+    <ion-list radio-group>
+      <ion-list-header>
+        Profesiones
+      </ion-list-header>
+
+      <ion-item *ngFor="let profession of professions">
+        <ion-label>{{ mayus(profession.name) }}</ion-label>
+        <ion-radio (ionSelect)="radioChecked(profession.id)"></ion-radio>
+      </ion-item>
+
+    </ion-list>
+
+    <div class="padding__top">
+      <button ion-button icon-start block color="dark" tappable (click)="goQuestions()">
+        <ion-icon name="log-in"></ion-icon>
+        Ir
+      </button>
+    </div>
+
+  </div>
+
+</ion-content>
